@@ -39,9 +39,9 @@ function draw() {
 
   push();
   fill(255);
-  if(windowHeight-(windowWidth + (windowHeight-windowWidth/2)) >= 0){
-  rect(0,0,windowWidth,windowHeight-(windowWidth + (windowHeight-windowWidth/2)));
-  rect(0,windowHeight-(windowHeight-(windowWidth + (windowHeight-windowWidth/2)),windowWidth,windowHeight-(windowWidth + (windowHeight-windowWidth/2))));
+  if((windowHeight-windowWidth)/2 >= 0){
+  rect(0,0,windowWidth,(windowHeight-windowWidth)/2);
+  rect(0,(windowHeight-windowWidth)/2,windowWidth,(windowHeight-windowWidth)/2);
 }
   pop();
 
