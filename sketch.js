@@ -38,18 +38,18 @@ function draw() {
   pop();
 
   push();
-  translate(0,0);
-  fill(255);
-  noStroke();
-  if((windowHeight-windowWidth)/2 >= 0){
-  rect(0,0,windowWidth,((windowHeight-windowWidth)/2)+10);
-  rect(0,windowHeight - ((windowHeight-windowWidth)/2)-10,windowWidth,((windowHeight-windowWidth)/2)+20);
-}
+  translate(windowWidth / 2, windowHeight / 2);
+  image(graphics, 0, 0, windowWidth, windowHeight);
   pop();
 
   push();
-  translate(windowWidth / 2, windowHeight / 2);
-  image(graphics, 0, 0, windowWidth, windowHeight);
+  translate(0,0);
+  fill(255,0,0);
+  noStroke();
+  if((windowHeight-windowWidth)/2 >= 0){
+    rect(0,0,windowWidth,((windowHeight-windowWidth)/2)+50);
+    rect(0,windowHeight - ((windowHeight-windowWidth)/2)-50,windowWidth,((windowHeight-windowWidth)/2)+100);
+}
   pop();
 }
 
