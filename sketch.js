@@ -42,8 +42,8 @@ function draw() {
   fill(255);
   noStroke();
   if((windowHeight-windowWidth)/2 >= 0){
-  rect(0,0,windowWidth,((windowHeight-windowWidth)/2)+5);
-  rect(0,windowHeight - ((windowHeight-windowWidth)/2),windowWidth,(windowHeight-windowWidth)/2);
+  rect(0,0,windowWidth,((windowHeight-windowWidth)/2)+10);
+  rect(0,windowHeight - ((windowHeight-windowWidth)/2)-10,windowWidth,((windowHeight-windowWidth)/2)+20);
 }
   pop();
 
