@@ -44,7 +44,7 @@ function draw() {
 
   push();
   translate(0,0);
-  fill(255,0,0);
+  fill(255);
   noStroke();
   if((windowHeight-windowWidth)/2 >= 0){
     rect(0,0,windowWidth,((windowHeight-windowWidth)/2)+50);
