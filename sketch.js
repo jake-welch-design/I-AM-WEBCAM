@@ -1,5 +1,6 @@
 let cam, img;
 let graphics;
+let camLoaded = false; // Flag to check if camera has been initialized
 
 function preload() {
   img = loadImage('images/I-AM-NEGATIVE.svg'); 
@@ -8,28 +9,35 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
-  cam = createCapture(VIDEO);
-  cam.size(windowWidth, windowWidth / 1.33); // Maintain 4:3 aspect ratio
-  cam.hide(); 
+  cam = createCapture(VIDEO, () => {
+    camLoaded = true; 
+  });
+  cam.hide();
   graphics = createGraphics(windowWidth, windowHeight);
 }
 
 function draw() {
   background(255);
 
+  if (!camLoaded) {
+    return; 
+  }
+
+  let camAspectRatio = cam.width / cam.height;
+
   let scaledWidth = windowWidth; 
   let scaledHeight = scaledWidth * (img.height / img.width);
 
   graphics.clear();
   graphics.imageMode(CENTER);
-  graphics.image(img, windowWidth / 2, windowHeight / 2, scaledWidth, scaledHeight); 
-  translate(windowWidth /2 , windowHeight / 2);
-  image(cam,0,0,windowWidth,0);
-  image(graphics, 0, 0, windowWidth, windowHeight); 
+  graphics.image(img, windowWidth / 2, windowHeight / 2, scaledWidth, scaledHeight);
+
+  translate(windowWidth / 2, windowHeight / 2);
+  image(cam, 0, 0, windowWidth, windowWidth / camAspectRatio); 
+  image(graphics, 0, 0, windowWidth, windowHeight);
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  cam.size(windowWidth, windowWidth / 1.33); // Adjust webcam size on window resize to maintain 4:3 aspect ratio
-  graphics = createGraphics(windowWidth, windowHeight); 
+  graphics = createGraphics(windowWidth, windowHeight);
 }
