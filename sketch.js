@@ -31,10 +31,24 @@ function draw() {
   graphics.clear();
   graphics.imageMode(CENTER);
   graphics.image(img, windowWidth / 2, windowHeight / 2, scaledWidth, scaledHeight);
-
+ 
+  push();
   translate(windowWidth / 2, windowHeight / 2);
   image(cam, 0, 0, windowWidth, windowWidth / camAspectRatio); 
+  pop();
+
+  push();
+  fill(255);
+  if(windowHeight-(windowWidth + (windowHeight-windowWidth/2)) >= 0){
+  rect(0,0,windowWidth,windowHeight-(windowWidth + (windowHeight-windowWidth/2)));
+  rect(0,windowHeight-(windowHeight-(windowWidth + (windowHeight-windowWidth/2)),windowWidth,windowHeight-(windowWidth + (windowHeight-windowWidth/2))));
+}
+  pop();
+
+  push();
+  translate(windowWidth / 2, windowHeight / 2);
   image(graphics, 0, 0, windowWidth, windowHeight);
+  pop();
 }
 
 function windowResized() {
