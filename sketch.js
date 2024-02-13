@@ -34,6 +34,7 @@ function draw() {
  
   push();
   translate(windowWidth / 2, windowHeight / 2);
+  scale(-1,1);
   image(cam, 0, 0, windowWidth, windowWidth / camAspectRatio); 
   pop();
 
